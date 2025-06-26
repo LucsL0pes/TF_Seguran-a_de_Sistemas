@@ -48,7 +48,7 @@ while True:
 
 print("Chave AES (Sa) cifrada com sucesso (X gerado).")
 
-# 4. Assinatura digital de X com chave privada do aluno
+# 4. Assinatura digital de X com chave privada
 SIGx = pow(X, Da, Na)
 print("Assinatura digital (SIGx) gerada com sucesso.")
 
@@ -73,3 +73,16 @@ print("\nSIGx (assinatura digital de X):")
 print(f"{SIGx:x}")
 
 
+# Salva dados privados
+with open("dados_privados.txt", "w", encoding="utf-8") as f:
+    f.write("=== DADOS ===\n\n")
+    f.write(f"Pa = {hex(Pa)}\n")
+    f.write(f"Qa = {hex(Qa)}\n")
+    f.write(f"Na = {hex(Na)}\n")
+    f.write(f"phi(Na) = {hex(phi)}\n")
+    f.write(f"Ea = {hex(Ea)}\n")
+    f.write(f"Da = {hex(Da)}\n")
+    f.write(f"\nSa (chave AES em hex) = {Sa.hex()}\n")
+    f.write(f"Sa (como inteiro) = {Sa_int}\n")
+    f.write(f"\nX = {hex(X)}\n")
+    f.write(f"SIGx = {hex(SIGx)}\n")
